@@ -1,7 +1,27 @@
-variable "environment" {}
+variable "gcp_region" {
+    default = "us-central1"
+}
+
+variable "project_id" {
+  description = "Google Project ID grandessuperfices-dev"
+  type        = string
+  default     = "grandesuperficies-dev"
+}
+
+variable "location" {
+  default = "us-central1-c"
+}
 
 variable "vpc_name" {
-  description = "The name of the network being created"
+  default = "gs-vpc"
+}
+
+variable "subnet_name" {
+  default = "gs-subnetwork"
+}
+
+variable "ip_cidr_range" {
+  default = "172.16.0.0/16"
 }
 
 variable "routing_mode" {
@@ -16,13 +36,28 @@ variable "auto_create_subnetworks" {
   default     = false
 }
 
-variable "project_id" {
-  description = "The ID of the project where this VPC will be created"
-}
-
 variable "description" {
   type        = string
   description = "An optional description of this resource. The resource must be recreated to modify this field."
-  default     = ""
+  default     = "VPC Proyecto GrandesSuperficies - Kubernetes Cluster"
 }
 
+variable "cluster_name" {
+  default = "gs-gke-cluster"
+}
+
+variable "initial_node_count" {
+  default = 1
+}
+
+variable "node_pool_name" {
+  default = "gs-node-pool"
+}
+
+variable "username" {
+  default = "admin"
+}
+
+variable "password" {
+  default = ""
+}
